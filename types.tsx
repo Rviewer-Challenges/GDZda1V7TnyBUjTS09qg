@@ -42,6 +42,10 @@ export interface Tweet {
   comments: number;
   text: string;
   createdAt: Date;
+  medias: {
+    type: string;
+    url: string;
+  }[];
   user: {
     avatarUri: string;
     fullName: string;
