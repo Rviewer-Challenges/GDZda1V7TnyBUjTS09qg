@@ -82,9 +82,10 @@ function TweetCard({ tweet }: TweetCardProps) {
             <MoreOptionsIcon color={theme.colors.grey2} />
           </Button>
         </View>
-        <View style={{ marginTop: theme.spacing.sm }}>
-          <TweetCardContent tweet={tweet} />
-        </View>
+        <TweetCardContent
+          tweet={tweet}
+          style={{ marginTop: theme.spacing.sm }}
+        />
         <InteractionButtons
           tweet={tweet}
           style={{ marginTop: theme.spacing.sm }}
