@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Tweet } from "../../types";
 import MoreOptionsIcon from "../common/icons/MoreOptionsIcon";
 import VerifyIcon from "../common/icons/VerifyIcon";
-import InteractionButtons from "./InteractionButtonsProps";
+import InteractionButtons from "./InteractionButtons";
 import TweetCardContent from "./TweetCardContent";
 
 interface TweetCardProps {

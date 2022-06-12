@@ -8,7 +8,7 @@ import { Tweet } from "../../types";
 
 interface InteractionButtonsProps {
   tweet: Tweet;
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 }
 
 function InteractionButtons({ tweet, style }: InteractionButtonsProps) {
