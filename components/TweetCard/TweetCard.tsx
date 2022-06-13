@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { Tweet } from "../../types";
 import MoreOptionsIcon from "../common/icons/MoreOptionsIcon";
 import VerifyIcon from "../common/icons/VerifyIcon";
+import { getFormattedDateString } from "../common/widgets/DateFormatter";
 import InteractionButtons from "./InteractionButtons";
 import TweetCardContent from "./TweetCardContent";
 
@@ -13,7 +14,7 @@ interface TweetCardProps {
 function TweetCard({ tweet }: TweetCardProps) {
   const { theme } = useTheme();
   const { user } = tweet || {};
-  const postedAgo = "42min"; // use createdAt.
+  const postedAgo = getFormattedDateString(tweet.createdAt);
 
   return (
     <View
