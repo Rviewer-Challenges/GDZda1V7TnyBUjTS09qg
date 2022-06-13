@@ -1,7 +1,8 @@
-import { Text, useTheme } from "@rneui/themed";
+import { useTheme } from "@rneui/themed";
 import { StyleProp, View, ViewStyle } from "react-native";
 import { Tweet } from "../../types";
 import { Image } from "@rneui/themed";
+import EnrichedText from "../common/widgets/EnrichedText";
 
 interface TweetCardContentProps {
   tweet: Tweet;
@@ -18,13 +19,7 @@ function TweetCardContent({ tweet, style }: TweetCardContentProps) {
 
   return (
     <View style={style}>
-      <Text
-        style={{
-          fontFamily: "Franklin Gothic"
-        }}
-      >
-        {text}
-      </Text>
+      {text ? <EnrichedText>{text}</EnrichedText> : null}
       {medias?.length > 0 ? (
         <View
           style={{
