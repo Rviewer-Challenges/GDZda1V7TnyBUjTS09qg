@@ -2,19 +2,12 @@ import { Text, useTheme } from "@rneui/themed";
 import Linkify from "linkify-react";
 import "linkify-plugin-mention";
 import "linkify-plugin-hashtag";
-import { ReactNode } from "react";
+import Anchor from "./Anchor";
 
-interface LinkTextProp {
-  href: string;
-  children: ReactNode;
-}
+const externalLinkTypes = ["url", "email"];
 
-const LinkText = (props: LinkTextProp) => {
-  const { theme } = useTheme();
-  return <Text style={{ color: theme.colors.primary }} {...props} />;
-};
-
-const linkTextTagName = () => LinkText;
+const linkTextTagName = (_operator: string, type: string) =>
+  externalLinkTypes.includes(type) ? Anchor : Text;
 
 interface EnrichedTextProps {
   children: string;
@@ -22,8 +15,17 @@ interface EnrichedTextProps {
 }
 
 function EnrichedText({ children, options }: EnrichedTextProps) {
+  const { theme } = useTheme();
+
   return (
-    <Linkify tagName={Text} options={{ ...options, tagName: linkTextTagName }}>
+    <Linkify
+      tagName={Text}
+      options={{
+        ...options,
+        tagName: linkTextTagName,
+        attributes: { style: { color: theme.colors.primary } }
+      }}
+    >
       {children}
     </Linkify>
   );
