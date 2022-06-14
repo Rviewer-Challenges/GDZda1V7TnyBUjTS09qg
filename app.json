@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "twitter-clone-1",
-    "slug": "twitter-clone-1",
+    "name": "twitter-clone",
+    "slug": "twitter-clone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -25,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kontrolg.twitterclone"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
