@@ -19,7 +19,9 @@ function TweetCardContent({ tweet, style }: TweetCardContentProps) {
 
   return (
     <View style={style}>
-      {text ? <EnrichedText>{text}</EnrichedText> : null}
+      {text ? (
+        <EnrichedText style={{ lineHeight: 19 }}>{text}</EnrichedText>
+      ) : null}
       {medias?.length > 0 ? (
         <View
           style={{
