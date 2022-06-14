@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import PropTypes from "prop-types";
 
 export const getFormattedDateString = (date) => {
@@ -18,10 +19,7 @@ const getTimeLapsedInSeconds = (date) => {
 
 // Check how it looks when date is for a past year.
 const getFixedDateString = (date) =>
-  date.toLocaleString("es-VE", {
-    day: "numeric",
-    month: "short"
-  });
+  dayjs(date).locale("es").format("D MMM.").toLowerCase();
 
 const getTimeLapsedString = (timeLapsedInSeconds) => {
   const timeInUnits = getTimeInUnits(timeLapsedInSeconds);
