@@ -1,5 +1,5 @@
 import { Avatar, Button, Text, useTheme } from "@rneui/themed";
-import { View } from "react-native";
+import { StyleProp, View, ViewStyle } from "react-native";
 import { Tweet } from "../../types";
 import MoreOptionsIcon from "../common/icons/MoreOptionsIcon";
 import VerifyIcon from "../common/icons/VerifyIcon";
@@ -9,22 +9,26 @@ import TweetCardContent from "./TweetCardContent";
 
 interface TweetCardProps {
   tweet: Tweet;
+  style?: StyleProp<ViewStyle>;
 }
 
-function TweetCard({ tweet }: TweetCardProps) {
+function TweetCard({ tweet, style }: TweetCardProps) {
   const { theme } = useTheme();
   const { user } = tweet || {};
   const postedAgo = getFormattedDateString(tweet.createdAt);
 
   return (
     <View
-      style={{
-        backgroundColor: theme.colors.background,
-        width: "100%",
-        paddingHorizontal: theme.spacing.xl,
-        paddingVertical: theme.spacing.lg,
-        flexDirection: "row"
-      }}
+      style={[
+        {
+          backgroundColor: theme.colors.background,
+          width: "100%",
+          paddingHorizontal: theme.spacing.xl,
+          paddingVertical: theme.spacing.lg,
+          flexDirection: "row"
+        },
+        style
+      ]}
     >
       <View>
         <Avatar size="medium" source={{ uri: user.avatarUri }} rounded />
@@ -36,7 +40,9 @@ function TweetCard({ tweet }: TweetCardProps) {
         }}
       >
         <View style={{ flexDirection: "row" }}>
-          <Text style={{ fontSize: 14 }}>{user.fullName}</Text>
+          <Text style={{ fontSize: 14, fontWeight: "bold" }}>
+            {user.fullName}
+          </Text>
           {user.isVerified ? (
             <VerifyIcon
               width={15.75}
