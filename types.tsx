@@ -39,6 +39,7 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   >;
 
 export interface Tweet {
+  id: number | string;
   likes: number;
   retweets: number;
   comments: number;
