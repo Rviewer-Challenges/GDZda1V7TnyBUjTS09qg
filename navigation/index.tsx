@@ -23,7 +23,7 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import TabOneScreen from "../screens/TabOneScreen";
+import HomeScreen from "../screens/HomeScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
@@ -103,7 +103,7 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -128,7 +128,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={{
           title: "Tab Two",
           tabBarIcon: ({ color }) => (
@@ -138,7 +138,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabThree"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={{
           title: "Tab Three",
           tabBarIcon: ({ color }) => (
@@ -148,7 +148,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="TabFour"
-        component={TabOneScreen}
+        component={HomeScreen}
         options={{
           title: "Tab Four",
           tabBarIcon: ({ color }) => (
