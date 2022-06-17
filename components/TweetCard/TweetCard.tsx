@@ -40,7 +40,10 @@ function TweetCard({ tweet, style }: TweetCardProps) {
         }}
       >
         <View style={{ flexDirection: "row" }}>
-          <Text style={{ fontSize: 14, fontWeight: "bold" }}>
+          <Text
+            style={{ fontSize: 14, fontWeight: "bold", flexShrink: 1 }}
+            numberOfLines={1}
+          >
             {user.fullName}
           </Text>
           {user.isVerified ? (
@@ -55,8 +58,10 @@ function TweetCard({ tweet, style }: TweetCardProps) {
             style={{
               fontSize: 13,
               color: theme.colors.grey2,
-              marginLeft: 4
+              marginLeft: 4,
+              flexShrink: 2
             }}
+            numberOfLines={1}
           >
             @{user.username}
           </Text>
