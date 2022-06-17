@@ -11,7 +11,7 @@ import {
   DarkTheme
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useTheme, useThemeMode } from "@rneui/themed";
+import { Avatar, Button, Text, useTheme, useThemeMode } from "@rneui/themed";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 import HomeTabIcon from "../components/common/icons/HomeTabIcon";
@@ -31,6 +31,7 @@ import {
   RootTabScreenProps
 } from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import HighlightedTweetsIcon from "../components/common/icons/HighlightedTweetsIcon";
 
 export default function Navigation({
   colorScheme
@@ -86,7 +87,6 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
-  const colorScheme = useThemeMode().mode;
   const { theme } = useTheme();
 
   return (
@@ -105,24 +105,41 @@ function BottomTabNavigator() {
         name="TabOne"
         component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
+          title: "Inicio",
+          headerTitleStyle: { fontSize: 16, fontWeight: "bold", left: 8 },
           tabBarIcon: ({ color }) => (
             <HomeTabIcon width={24.5} height={24.5} color={color} />
           ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Modal")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
+          headerStyle: {
+            backgroundColor: theme.colors.background
+          },
+          headerLeft: () => (
+            <Button type="clear" containerStyle={{ left: 8 }}>
+              <Avatar
+                size="small"
+                source={{
+                  uri: "https://avatars.githubusercontent.com/u/43476781?v=4"
+                }}
+                rounded
               />
-            </Pressable>
+            </Button>
+          ),
+          headerRight: () => (
+            <Button
+              type="clear"
+              containerStyle={{
+                borderRadius: 9999,
+                width: 32,
+                height: 32,
+                right: 8
+              }}
+            >
+              <HighlightedTweetsIcon
+                color={theme.colors.black}
+                width={19}
+                height={19}
+              />
+            </Button>
           )
         })}
       />
