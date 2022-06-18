@@ -42,7 +42,7 @@ function InteractionButtons({ tweet, style }: InteractionButtonsProps) {
             color: theme.colors.grey2
           }}
         >
-          {tweet.comments}
+          {tweet.comments > 0 ? tweet.comments : null}
         </Text>
       </Button>
       <Button
@@ -63,7 +63,7 @@ function InteractionButtons({ tweet, style }: InteractionButtonsProps) {
             color: theme.colors.grey2
           }}
         >
-          {tweet.retweets}
+          {tweet.retweets > 0 ? tweet.retweets : null}
         </Text>
       </Button>
       <Button
@@ -84,7 +84,7 @@ function InteractionButtons({ tweet, style }: InteractionButtonsProps) {
             color: theme.colors.grey2
           }}
         >
-          {tweet.likes}
+          {tweet.likes > 0 ? tweet.likes : null}
         </Text>
       </Button>
       <Button
