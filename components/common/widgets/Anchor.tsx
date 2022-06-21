@@ -1,6 +1,7 @@
-import { GestureResponderEvent, Text, TextProps } from "react-native";
+import { GestureResponderEvent } from "react-native";
 import { openURL } from "expo-linking";
 import { openBrowserAsync, WebBrowserOpenOptions } from "expo-web-browser";
+import Text, { TextProps } from "../../Text";
 
 interface AnchorProps extends TextProps {
   href: string;

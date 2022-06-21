@@ -1,10 +1,11 @@
-import { Button, Text, useTheme } from "@rneui/themed";
+import { Button, useTheme } from "@rneui/themed";
 import { StyleProp, View, ViewStyle } from "react-native";
 import ShareIcon from "../common/icons/ShareIcon";
 import LikeIcon from "../common/icons/LikeIcon";
 import RetweetIcon from "../common/icons/RetweetIcon";
 import CommentIcon from "../common/icons/CommentIcon";
 import { Tweet } from "../../types";
+import Text from "../Text";
 
 interface InteractionButtonsProps {
   tweet: Tweet;

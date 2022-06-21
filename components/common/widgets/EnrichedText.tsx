@@ -1,8 +1,9 @@
-import { Text, TextProps, useTheme } from "@rneui/themed";
+import { useTheme } from "@rneui/themed";
 import Linkify from "linkify-react";
 import "linkify-plugin-mention";
 import "linkify-plugin-hashtag";
 import Anchor from "./Anchor";
+import Text, { TextProps } from "../../Text";
 
 const externalLinkTypes = ["url", "email"];
 

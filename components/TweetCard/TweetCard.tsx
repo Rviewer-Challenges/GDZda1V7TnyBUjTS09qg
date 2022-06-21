@@ -1,4 +1,4 @@
-import { Avatar, Button, Text, useTheme } from "@rneui/themed";
+import { Avatar, Button, useTheme } from "@rneui/themed";
 import { StyleProp, View, ViewStyle } from "react-native";
 import { Tweet } from "../../types";
 import MoreOptionsIcon from "../common/icons/MoreOptionsIcon";
@@ -6,6 +6,7 @@ import VerifyIcon from "../common/icons/VerifyIcon";
 import { getFormattedDateString } from "../common/widgets/DateFormatter";
 import InteractionButtons from "./InteractionButtons";
 import TweetCardContent from "./TweetCardContent";
+import Text from "../Text";
 
 interface TweetCardProps {
   tweet: Tweet;
