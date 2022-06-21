@@ -40,9 +40,18 @@ function TweetCard({ tweet, style }: TweetCardProps) {
           flex: 1
         }}
       >
-        <View style={{ flexDirection: "row" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center"
+          }}
+        >
           <Text
-            style={{ fontSize: 14, fontWeight: "bold", flexShrink: 1 }}
+            style={{
+              fontSize: 14,
+              fontWeight: "bold",
+              flexShrink: 1
+            }}
             numberOfLines={1}
           >
             {user.fullName}
@@ -52,7 +61,7 @@ function TweetCard({ tweet, style }: TweetCardProps) {
               width={15.75}
               height={15.75}
               color={theme.colors.black}
-              style={{ alignSelf: "center", marginLeft: 6 }}
+              style={{ marginLeft: 6 }}
             />
           ) : null}
           <Text
