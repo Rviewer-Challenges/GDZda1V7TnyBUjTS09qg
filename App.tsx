@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@rneui/themed";
-import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import theme from "./constants/theme";
@@ -9,18 +8,15 @@ import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
+  const { isLoadingComplete, onRootViewLayout } = useCachedResources();
   const colorScheme = useColorScheme();
-  const [fontsLoaded] = useFonts({
-    "GT America Regular": require("./assets/fonts/GT America Regular.ttf")
-  });
 
-  if (!isLoadingComplete || !fontsLoaded) {
+  if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <SafeAreaProvider>
+        <SafeAreaProvider onLayout={onRootViewLayout}>
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
         </SafeAreaProvider>
