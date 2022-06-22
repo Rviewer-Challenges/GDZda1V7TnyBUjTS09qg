@@ -3,33 +3,29 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator
+} from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Avatar, Button, Text, useTheme, useThemeMode } from "@rneui/themed";
+import { Avatar, Button, useTheme, useThemeMode } from "@rneui/themed";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName } from "react-native";
 import HomeTabIcon from "../components/common/icons/HomeTabIcon";
 import InboxTabIcon from "../components/common/icons/InboxTabIcon";
 import NotificationsTabIcon from "../components/common/icons/NotificationsTabIcon";
 import SearchTabIcon from "../components/common/icons/SearchTabIcon";
-
-import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import HomeScreen from "../screens/HomeScreen";
-import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps
-} from "../types";
+  RootTabParamList} from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import HighlightedTweetsIcon from "../components/common/icons/HighlightedTweetsIcon";
 
@@ -89,6 +85,45 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 function BottomTabNavigator() {
   const { theme } = useTheme();
 
+  const homeScreenOptions: BottomTabNavigationOptions = {
+    title: "Inicio",
+    headerTitleStyle: { fontSize: 16, fontWeight: "bold", left: 8 },
+    tabBarIcon: ({ color }) => (
+      <HomeTabIcon width={24.5} height={24.5} color={color} />
+    ),
+    headerStyle: {
+      backgroundColor: theme.colors.background
+    },
+    headerLeft: () => (
+      <Button type="clear" containerStyle={{ left: 8 }}>
+        <Avatar
+          size="small"
+          source={{
+            uri: "https://avatars.githubusercontent.com/u/43476781?v=4"
+          }}
+          rounded
+        />
+      </Button>
+    ),
+    headerRight: () => (
+      <Button
+        type="clear"
+        containerStyle={{
+          borderRadius: 9999,
+          width: 32,
+          height: 32,
+          right: 8
+        }}
+      >
+        <HighlightedTweetsIcon
+          color={theme.colors.black}
+          width={19}
+          height={19}
+        />
+      </Button>
+    )
+  };
+
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
@@ -104,49 +139,13 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="TabOne"
         component={HomeScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Inicio",
-          headerTitleStyle: { fontSize: 16, fontWeight: "bold", left: 8 },
-          tabBarIcon: ({ color }) => (
-            <HomeTabIcon width={24.5} height={24.5} color={color} />
-          ),
-          headerStyle: {
-            backgroundColor: theme.colors.background
-          },
-          headerLeft: () => (
-            <Button type="clear" containerStyle={{ left: 8 }}>
-              <Avatar
-                size="small"
-                source={{
-                  uri: "https://avatars.githubusercontent.com/u/43476781?v=4"
-                }}
-                rounded
-              />
-            </Button>
-          ),
-          headerRight: () => (
-            <Button
-              type="clear"
-              containerStyle={{
-                borderRadius: 9999,
-                width: 32,
-                height: 32,
-                right: 8
-              }}
-            >
-              <HighlightedTweetsIcon
-                color={theme.colors.black}
-                width={19}
-                height={19}
-              />
-            </Button>
-          )
-        })}
+        options={homeScreenOptions}
       />
       <BottomTab.Screen
         name="TabTwo"
         component={HomeScreen}
         options={{
+          ...homeScreenOptions,
           title: "Tab Two",
           tabBarIcon: ({ color }) => (
             <SearchTabIcon width={24.5} height={24.5} color={color} />
@@ -157,6 +156,7 @@ function BottomTabNavigator() {
         name="TabThree"
         component={HomeScreen}
         options={{
+          ...homeScreenOptions,
           title: "Tab Three",
           tabBarIcon: ({ color }) => (
             <NotificationsTabIcon width={24.5} height={24.5} color={color} />
@@ -167,6 +167,7 @@ function BottomTabNavigator() {
         name="TabFour"
         component={HomeScreen}
         options={{
+          ...homeScreenOptions,
           title: "Tab Four",
           tabBarIcon: ({ color }) => (
             <InboxTabIcon width={24.5} height={24.5} color={color} />
