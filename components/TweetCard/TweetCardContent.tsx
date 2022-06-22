@@ -53,6 +53,7 @@ function TweetCardContent({ tweet, style }: TweetCardContentProps) {
               >
                 {firstRowMedias.map(({ url }) => (
                   <Image
+                    key={url}
                     source={{ uri: url }}
                     containerStyle={{
                       width: "100%",
@@ -67,6 +68,7 @@ function TweetCardContent({ tweet, style }: TweetCardContentProps) {
               <View style={{ width: "100%", flexDirection: "row" }}>
                 {lastRowMedias.map(({ url }) => (
                   <Image
+                    key={url}
                     source={{ uri: url }}
                     containerStyle={{
                       width: "100%",
