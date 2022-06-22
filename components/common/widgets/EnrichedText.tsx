@@ -5,10 +5,16 @@ import "linkify-plugin-hashtag";
 import Anchor from "./Anchor";
 import Text, { TextProps } from "../../Text";
 
-const externalLinkTypes = ["url", "email"];
+const externalLinkTypes = ["url", "email", "hashtag", "mention"];
 
 const linkTextTagName = (_operator: string, type: string) =>
   externalLinkTypes.includes(type) ? Anchor : Text;
+
+const formatHref = {
+  hashtag: (hashtag: string) =>
+    `https://twitter.com/hashtag/${hashtag.replace("#", "")}?src=hashtag_click`,
+  mention: (usernameUrl: string) => `https://twitter.com${usernameUrl}`
+};
 
 interface EnrichedTextProps extends TextProps {
   children: string;
@@ -27,7 +33,8 @@ function EnrichedText({ children, options, ...textProps }: EnrichedTextProps) {
         tagName: linkTextTagName,
         attributes: {
           style: { color: theme.colors.primary, ...options?.style }
-        }
+        },
+        formatHref
       }}
     >
       {children}
