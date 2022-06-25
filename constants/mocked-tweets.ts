@@ -14,6 +14,7 @@ const myUser = {
   username: "GermanSolano12",
   isVerified: false
 };
+
 export default [
   {
     id: "programador",
@@ -93,11 +94,12 @@ Feliz #diadelprogramador!`,
     likes: 2,
     retweets: 3,
     comments: 5,
-    text: "",
+    text: `La gente: No puedes escuchar un gif.
+El gif:`,
     medias: [
       {
         type: "gif",
-        url: "https://go.rviewer.io/wp-content/uploads/2022/05/elon.gif"
+        url: "https://c.tenor.com/0hjOGLFaQa0AAAAd/lofi-girl-lofi.gif"
       }
     ],
     createdAt: pastDate,
