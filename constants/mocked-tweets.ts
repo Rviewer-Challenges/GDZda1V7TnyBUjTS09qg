@@ -2,15 +2,14 @@ const pastDate = new Date();
 pastDate.setDate(pastDate.getDate() - 7);
 
 const moureDevUser = {
-  avatarUri:
-    "https://pbs.twimg.com/profile_images/1537498619879768064/WvS78gLg_normal.jpg",
+  avatarUri: "https://github.com/mouredev.png",
   fullName: "Brais Moure",
   username: "MoureDev",
   isVerified: true
 };
 
 const myUser = {
-  avatarUri: "https://avatars.githubusercontent.com/u/43476781?v=4",
+  avatarUri: "https://github.com/KontrolG.png",
   fullName: "German Solano",
   username: "GermanSolano12",
   isVerified: false
