@@ -3,12 +3,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import theme from "./constants/theme";
 
 import useCachedResources from "./hooks/useCachedResources";
-import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 
 export default function App() {
   const { isLoadingComplete, onRootViewLayout } = useCachedResources();
-  const colorScheme = useColorScheme();
 
   if (!isLoadingComplete) {
     return null;
@@ -16,7 +14,7 @@ export default function App() {
     return (
       <ThemeProvider theme={theme}>
         <SafeAreaProvider onLayout={onRootViewLayout}>
-          <Navigation colorScheme={colorScheme} />
+          <Navigation />
         </SafeAreaProvider>
       </ThemeProvider>
     );

@@ -8,6 +8,10 @@ const theme = createTheme({
     grey2: "#8B98A5",
     grey4: "#38444D",
     primary: "#1DA1F2"
+  },
+  lightColors: {
+    black: "#0f1419",
+    primary: "#1d9bf0"
   }
 });
 

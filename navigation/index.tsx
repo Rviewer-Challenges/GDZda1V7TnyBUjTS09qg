@@ -29,21 +29,19 @@ import {
 import LinkingConfiguration from "./LinkingConfiguration";
 import HighlightedTweetsIcon from "../components/common/icons/HighlightedTweetsIcon";
 import { StatusBar, StatusBarStyle } from "expo-status-bar";
+import useColorScheme from "../hooks/useColorScheme";
 
 const statusBarStyleForThemeMode: { [key: string]: StatusBarStyle } = {
   dark: "light",
   light: "dark"
 };
 
-export default function Navigation({
-  colorScheme
-}: {
-  colorScheme: ColorSchemeName;
-}) {
+export default function Navigation() {
+  const colorScheme = useColorScheme();
   const { mode, setMode } = useThemeMode();
 
   React.useEffect(() => {
-    setMode("dark");
+    setMode(colorScheme);
   }, [colorScheme]);
 
   const statusBarStyle = statusBarStyleForThemeMode[mode] || "auto";
@@ -96,7 +94,12 @@ function BottomTabNavigator() {
 
   const homeScreenOptions: BottomTabNavigationOptions = {
     title: "Inicio",
-    headerTitleStyle: { fontSize: 16, fontWeight: "bold", left: 8 },
+    headerTitleStyle: {
+      fontSize: 16,
+      fontWeight: "bold",
+      left: 8,
+      color: theme.colors.black
+    },
     tabBarIcon: ({ color }) => (
       <HomeTabIcon width={24.5} height={24.5} color={color} />
     ),

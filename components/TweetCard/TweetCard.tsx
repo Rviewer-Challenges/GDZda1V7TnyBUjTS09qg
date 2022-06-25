@@ -60,7 +60,11 @@ function TweetCard({ tweet, style }: TweetCardProps) {
             <VerifyIcon
               width={15.75}
               height={15.75}
-              color={theme.colors.black}
+              color={
+                theme.mode === "dark"
+                  ? theme.colors.black
+                  : theme.colors.primary
+              }
               style={{ marginLeft: 6 }}
             />
           ) : null}
