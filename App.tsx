@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@rneui/themed";
-import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import theme from "./constants/theme";
 
@@ -18,7 +17,6 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <SafeAreaProvider onLayout={onRootViewLayout}>
           <Navigation colorScheme={colorScheme} />
-          <StatusBar />
         </SafeAreaProvider>
       </ThemeProvider>
     );

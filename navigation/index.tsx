@@ -28,6 +28,12 @@ import {
   RootTabParamList} from "../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import HighlightedTweetsIcon from "../components/common/icons/HighlightedTweetsIcon";
+import { StatusBar, StatusBarStyle } from "expo-status-bar";
+
+const statusBarStyleForThemeMode: { [key: string]: StatusBarStyle } = {
+  dark: "light",
+  light: "dark"
+};
 
 export default function Navigation({
   colorScheme
@@ -40,12 +46,15 @@ export default function Navigation({
     setMode("dark");
   }, [colorScheme]);
 
+  const statusBarStyle = statusBarStyleForThemeMode[mode] || "auto";
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={mode === "dark" ? DarkTheme : DefaultTheme}
     >
       <RootNavigator />
+      <StatusBar style={statusBarStyle} />
     </NavigationContainer>
   );
 }
