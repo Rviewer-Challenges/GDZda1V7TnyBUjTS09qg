@@ -9,7 +9,7 @@ Simple Twitter Clone made with React-Native together with the ExpoCLI where I pu
 
 [Live Preview](https://germansdev.vercel.app/twitter-clone-native)
 
-[Android bundle (.apk)](https://germansdev.vercel.app/twitter-clone-native)
+[Android bundle (.apk)](https://drive.google.com/file/d/1duZgiLqUMXzHbHAphqy-ckH_OF4U4Nj5/view?usp=sharing)
 
   ![Twitter CLone Preview](https://germansdev.vercel.app/assets/images/twitter-clone-preview.jpg)
 
